@@ -2,10 +2,9 @@ using UnityEngine;
 
 public abstract class Interactable : MonoBehaviour
 {
-    [Header("Interação")]
-    [SerializeField] private string promptMessage = "Pressione [E] para interagir";
+    private string promptMessage;
 
     public string PromptMessage => promptMessage;
 
-    public abstract void Interact(GameObject interactor);
+    public abstract void Interact(PlayerInteraction interactor);
 }

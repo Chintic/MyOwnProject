@@ -4,6 +4,12 @@ using UnityEngine.InputSystem;
 public class PlayerInteraction : MonoBehaviour
 {
     private Interactable interactableProximo;
+    public PlayerInventory Inventory { get; private set; }
+
+    private void Awake()
+    {
+        Inventory = GetComponent<PlayerInventory>();
+    }
 
     private void Update()
     {
@@ -18,7 +24,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (interactableProximo != null)
         {
-            interactableProximo.Interact(gameObject);
+            interactableProximo.Interact(this);
         }
     }
 
@@ -28,10 +34,6 @@ public class PlayerInteraction : MonoBehaviour
         if (collision.TryGetComponent<Interactable>(out var interactable))
         {
             interactableProximo = interactable;
-            if (DialogueManager.Instance != null && !DialogueManager.Instance.IsShowing)
-            {
-                DialogueManager.Instance.ShowMessage(interactable.PromptMessage, 2.5f);
-            }
         }
     }
 

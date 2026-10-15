@@ -4,27 +4,19 @@ public class Counter : Interactable
 {
     [SerializeField] private ItemType itemFornecido;
 
-    public ItemType ItemFornecido => itemFornecido;
-
-    public override void Interact(GameObject interactor)
+    public override void Interact(PlayerInteraction interactor)
     {
-        if (interactor != null && interactor.TryGetComponent<PlayerInventory>(out var player))
+        PlayerInventory inventory = interactor.Inventory;
+
+        if (inventory.ItemNaMao == ItemType.Nenhum)
         {
-            if (player.ItemNaMao == ItemType.Nenhum)
-            {
-                player.ItemNaMao = itemFornecido;
-                if (DialogueManager.Instance != null)
-                {
-                    DialogueManager.Instance.ShowMessage($"Você pegou: {itemFornecido}!");
-                }
-            }
-            else
-            {
-                if (DialogueManager.Instance != null)
-                {
-                    DialogueManager.Instance.ShowMessage("Você já está segurando um item!");
-                }
-            }
+            inventory.ItemNaMao = itemFornecido;
+
+            DialogueManager.Instance?.ShowMessage($"Você pegou: {itemFornecido}!");
+        }
+        else
+        {
+            DialogueManager.Instance?.ShowMessage("Você já está segurando um item!");
         }
     }
 }
