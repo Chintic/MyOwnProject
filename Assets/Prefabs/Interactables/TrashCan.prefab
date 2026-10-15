@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4591656307827215617
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 334705790887813431, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 334705790887813431, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 334705790887813431, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 334705790887813431, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 334705790887813431, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 334705790887813431, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 334705790887813431, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 334705790887813431, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 334705790887813431, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 334705790887813431, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1095468208677684004, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_Name
+      value: TrashCan
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911738773788769783, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_Size.y
+      value: 0.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911738773788769783, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911738773788769783, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.4944673
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911738773788769783, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.1087029
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911738773788769783, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911738773788769783, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068626287769140108, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8258279479603881886, guid: 65e82f46bcd5eac41909a0247ff58e72, type: 3}
+    - target: {fileID: 3068626287769140108, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6976682
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068626287769140108, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6976682
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068626287769140108, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_Color.r
+      value: 0.735849
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931378545686739315, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931378545686739315, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.4944673
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931378545686739315, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.1087029
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931378545686739315, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931378545686739315, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1095468208677684004, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -9127229352504922841}
+  m_SourcePrefab: {fileID: 100100000, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+--- !u!1 &3497948487068061221 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1095468208677684004, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+  m_PrefabInstance: {fileID: 4591656307827215617}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-9127229352504922841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3497948487068061221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bb7e193cb135a74092810707769d95f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashCan
