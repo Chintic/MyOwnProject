@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Tilemaps;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private Vector2 moveInput;
+
+    public Animator anim;
+    private bool moving;
 
     private void Awake()
     {
@@ -29,11 +33,32 @@ public class PlayerMovement : MonoBehaviour
 
         // Normaliza para não andar mais rápido na diagonal
         moveInput = input.normalized;
+        Animate();
     }
 
     private void FixedUpdate()
     {
         // No Unity 6, usamos linearVelocity para movimentação física suave
         rb.linearVelocity = moveInput * moveSpeed;
+    }
+
+    private void Animate()
+    {
+        if(moveInput.magnitude > 0.1f || moveInput.magnitude < -0.1f)
+        {
+            moving = true;
+        }
+        else
+        {
+            moving = false;
+        }
+
+        if (moving)
+        {
+            anim.SetFloat("X", moveInput.x);
+            anim.SetFloat("Y", moveInput.y);
+        }
+
+        anim.SetBool("isMoving", moving);
     }
 }

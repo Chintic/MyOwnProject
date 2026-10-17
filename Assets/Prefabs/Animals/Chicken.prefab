@@ -1,0 +1,138 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5645068828228442290
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 334705790887813431, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.0874143
+      objectReference: {fileID: 0}
+    - target: {fileID: 334705790887813431, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.67722815
+      objectReference: {fileID: 0}
+    - target: {fileID: 334705790887813431, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 334705790887813431, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 334705790887813431, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 334705790887813431, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 334705790887813431, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 334705790887813431, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 334705790887813431, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 334705790887813431, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1095468208677684004, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_Name
+      value: Chicken
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911738773788769783, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_Size.y
+      value: 0.27115852
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911738773788769783, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.18445995
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911738773788769783, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911738773788769783, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.8125
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911738773788769783, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.9375
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068626287769140108, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7787217817404136488, guid: d3b6ea910c522d3498ed186c76b198c6, type: 3}
+    - target: {fileID: 3068626287769140108, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068626287769140108, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068626287769140108, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931378545686739315, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_Size.y
+      value: 0.43658376
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931378545686739315, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.17380452
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931378545686739315, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931378545686739315, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.8125
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931378545686739315, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.9375
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1095468208677684004, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5936764600116243833}
+  m_SourcePrefab: {fileID: 100100000, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+--- !u!1 &4712087616161864598 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1095468208677684004, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
+  m_PrefabInstance: {fileID: 5645068828228442290}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5936764600116243833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4712087616161864598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05121dbf1a50cc245a9869e1f0f5fece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Chicken_Interactable
+  speed: 3
+  followOffset: {x: -1, y: -0.5, z: 0}
+  stopDistance: 0.1

@@ -3,7 +3,6 @@ using UnityEngine;
 public class TrashCan : Interactable    
 {
 
-    public PlayerInventory inventory;
     // Implementa o método abstrato herdado
     public override void Interact(PlayerInteraction interactor)
     {
