@@ -8,13 +8,13 @@ public class TrashCan : Interactable
     {
         PlayerInventory inventory = interactor.Inventory;
 
-        if (inventory.ItemNaMao == ItemType.Nenhum)
+        if (inventory.ItemNaMao == null)
         {
             DialogueManager.Instance?.ShowMessage($"Você não tem nenhum item para descartar!");
         }
         else
         {
-            inventory.ItemNaMao = ItemType.Nenhum;
+            inventory.ItemNaMao = null;
             DialogueManager.Instance?.ShowMessage("Você jogou fora seu item.");
         }
     }
