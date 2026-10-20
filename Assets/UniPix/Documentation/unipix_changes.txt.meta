@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+guid: 8d97cb64bd988794cb3d00df233867bf
+TextScriptImporter:
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 28312
+  packageName: 'UniPix: Pixel Art Tool'
+  packageVersion: 1.1
+  assetPath: Assets/UniPix/Documentation/unipix_changes.txt
+  uploadId: 92862
