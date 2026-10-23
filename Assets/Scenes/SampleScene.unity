@@ -488,6 +488,7 @@ GameObject:
   - component: {fileID: 904286951}
   - component: {fileID: 904286952}
   - component: {fileID: 904286953}
+  - component: {fileID: 904286954}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -623,7 +624,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveSpeed: 5
-  anim: {fileID: 904286952}
 --- !u!212 &904286951
 SpriteRenderer:
   serializedVersion: 3
@@ -719,6 +719,20 @@ SortingGroup:
   m_SortingOrder: 0
   m_SortAtRoot: 0
   m_Sort3DAs2D: 0
+--- !u!114 &904286954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904286943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9b0f0f4196e2944cb60d7bae0ea35b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimation
+  playerMovement: {fileID: 904286950}
+  playerInventory: {fileID: 904286949}
 --- !u!1 &1033699300
 GameObject:
   m_ObjectHideFlags: 0
@@ -988,7 +1002,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveSpeed: 5
-  anim: {fileID: 1656322728}
 --- !u!114 &1656322732
 MonoBehaviour:
   m_ObjectHideFlags: 0

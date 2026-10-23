@@ -1,17 +1,17 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Tilemaps;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Configurações")]
     [SerializeField] private float moveSpeed = 5f;
+
+    public event Action<Vector2> OnMovementChanged;
 
     private Rigidbody2D rb;
     private Vector2 moveInput;
 
-    public Animator anim;
-    private bool moving;
+    // public Animator anim;
 
     private void Awake()
     {
@@ -21,19 +21,21 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         // Lê os comandos de direção do teclado moderno (WASD / Setas)
-        Vector2 input = Vector2.zero;
+        moveInput = Vector2.zero;
 
-        if (Keyboard.current != null)
-        {
-            if (Keyboard.current.wKey.isPressed || Keyboard.current.upArrowKey.isPressed) input.y += 1f;
-            if (Keyboard.current.sKey.isPressed || Keyboard.current.downArrowKey.isPressed) input.y -= 1f;
-            if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed) input.x -= 1f;
-            if (Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed) input.x += 1f;
-        }
+        if (Keyboard.current.wKey.isPressed || Keyboard.current.upArrowKey.isPressed) moveInput.y += 1f;
+        if (Keyboard.current.sKey.isPressed || Keyboard.current.downArrowKey.isPressed) moveInput.y -= 1f;
+        if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed) moveInput.x -= 1f;
+        if (Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed) moveInput.x += 1f;
 
         // Normaliza para não andar mais rápido na diagonal
-        moveInput = input.normalized;
-        Animate();
+        moveInput = moveInput.normalized;
+
+        // Para o uso de Action, events e etc, irei retirar o Animate daqui, criar um Action para gritar que o player está se movendo,
+        // e o Animator irá escutar esse Action para animar o player. Nesse action irei passar o vetor de movimento, e o Animator irá usar esse vetor para animar o player.
+        //Animate();
+
+        OnMovementChanged?.Invoke(moveInput);
     }
 
     private void FixedUpdate()
@@ -42,23 +44,18 @@ public class PlayerMovement : MonoBehaviour
         rb.linearVelocity = moveInput * moveSpeed;
     }
 
-    private void Animate()
-    {
-        if(moveInput.magnitude > 0.1f || moveInput.magnitude < -0.1f)
-        {
-            moving = true;
-        }
-        else
-        {
-            moving = false;
-        }
 
-        if (moving)
-        {
-            anim.SetFloat("X", moveInput.x);
-            anim.SetFloat("Y", moveInput.y);
-        }
+    //Esse método irá sumir, e será substituído por um Action que o Animator irá escutar para animar o player.
+    //private void Animate()
+    //{
+    //    isMoving = moveInput.sqrMagnitude > 0.01f;
 
-        anim.SetBool("isMoving", moving);
-    }
+    //    if (isMoving)
+    //    {
+    //        anim.SetFloat("X", moveInput.x);
+    //        anim.SetFloat("Y", moveInput.y);
+    //    }
+
+    //    anim.SetBool("isMoving", isMoving);
+    //}
 }
