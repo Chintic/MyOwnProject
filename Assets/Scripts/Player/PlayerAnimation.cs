@@ -5,8 +5,6 @@ public class PlayerAnimation : MonoBehaviour
 {
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private PlayerInventory playerInventory;
-
-
     private Animator anim;
 
     private void Awake()

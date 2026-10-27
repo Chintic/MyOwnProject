@@ -342,10 +342,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+    x: 0.048022598
+    y: 0.012635379
+    width: 0.9039548
+    height: 0.97472924
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -511,14 +511,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 904286944}
+  - component: {fileID: 904286951}
+  - component: {fileID: 904286953}
   - component: {fileID: 904286946}
   - component: {fileID: 904286947}
-  - component: {fileID: 904286948}
   - component: {fileID: 904286950}
+  - component: {fileID: 904286948}
   - component: {fileID: 904286949}
-  - component: {fileID: 904286951}
   - component: {fileID: 904286952}
-  - component: {fileID: 904286953}
   - component: {fileID: 904286954}
   m_Layer: 0
   m_Name: Player
@@ -604,7 +604,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.12}
+  m_Offset: {x: 0, y: 0.14408186}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -614,7 +614,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.5, y: 0.24}
+  m_Size: {x: 0.5, y: 0.1918363}
   m_EdgeRadius: 0
 --- !u!114 &904286948
 MonoBehaviour:
