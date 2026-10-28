@@ -27,6 +27,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             interactableProximo.Interact(this);
         }
+
     }
 
     // Detecta quando o jogador entra na área de gatilho (Trigger) do interagível

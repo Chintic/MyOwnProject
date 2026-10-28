@@ -14,14 +14,16 @@ public class PlayerAnimation : MonoBehaviour
 
     private void OnEnable()
     {
-        playerMovement.OnMovementChanged += Animate;
+        playerMovement.OnMovementChanged += AnimateMovement;
+        playerInventory.OnHeldItemChange += AnimateHeldItem;
     }
 
     private void OnDisable()
     {
-        playerMovement.OnMovementChanged -= Animate;
+        playerMovement.OnMovementChanged -= AnimateMovement;
+        playerInventory.OnHeldItemChange -= AnimateHeldItem;
     }
-    private void Animate(Vector2 moveInput)
+    private void AnimateMovement(Vector2 moveInput)
     {
         bool isMoving = moveInput.sqrMagnitude > 0.01f;
 
@@ -31,9 +33,14 @@ public class PlayerAnimation : MonoBehaviour
             anim.SetFloat("Y", moveInput.y);
         }
 
-        anim.SetBool("isCarrying", playerInventory.ItemNaMao != null);
+        
 
         anim.SetBool("isMoving", isMoving);
+    }
+
+    private void AnimateHeldItem(ItemsScriptableObject item)
+    {
+        anim.SetBool("isCarrying", item != null);
     }
 
 }

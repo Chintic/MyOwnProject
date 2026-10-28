@@ -6,7 +6,7 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private ItemsScriptableObject itemNaMao = null;
     [SerializeField] private SpriteRenderer itemNaMaoSpriteRenderer;
 
-
+    public event Action<ItemsScriptableObject> OnHeldItemChange;
     public ItemsScriptableObject ItemNaMao
     {
         get { return itemNaMao; }
@@ -23,6 +23,7 @@ public class PlayerInventory : MonoBehaviour
             {
                 itemNaMaoSpriteRenderer.sprite = null;
             }
+            OnHeldItemChange?.Invoke(itemNaMao);
 
         }
     }

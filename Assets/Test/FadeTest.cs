@@ -18,9 +18,9 @@ public class FadeTest : MonoBehaviour
         {
             c.a = alpha;
             sprite.color = c;
-
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(1f);
         }
+
 
         c.a = 0f;
         sprite.color = c;
