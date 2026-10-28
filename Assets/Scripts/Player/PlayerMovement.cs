@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
 
     public event Action<Vector2> OnMovementChanged;
 
+    
+
     private Rigidbody2D rb;
     private Vector2 moveInput;
 

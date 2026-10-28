@@ -13,7 +13,7 @@ public class Chicken_Interactable : Interactable
     private PlayerInteraction interactor; // <-- campo para guardar o interactor
     private Vector3 direction;
     static List<Chicken_Interactable> chickensList = new List<Chicken_Interactable>();
-    Vector3 targetPosition = new Vector3();
+    private Vector3 targetPosition = new Vector3();
 
     private void Awake()
     {
@@ -34,7 +34,6 @@ public class Chicken_Interactable : Interactable
 
     private void Update()
     {
-        Debug.Log(targetPosition);
 
         int index = chickensList.IndexOf(this);
 
