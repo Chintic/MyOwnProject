@@ -23,7 +23,8 @@ public class Chicken_Interactable : Interactable
     private enum ChickenState
     {
         Idle,
-        Walking
+        Walking,
+        Sleeping
     }
 
     private ChickenState state;
@@ -101,7 +102,7 @@ public class Chicken_Interactable : Interactable
 
         else 
         {
-            state = ChickenState.Idle;
+            state = ChickenState.Sleeping;
         }
         Animate();
     }
@@ -109,6 +110,7 @@ public class Chicken_Interactable : Interactable
     private void Animate()
     {
         anim.SetBool("isMoving", state == ChickenState.Walking);
+        anim.SetBool("isSleeping", state == ChickenState.Sleeping);
 
         if (direction.x != 0f)
             anim.SetFloat("X", Mathf.Sign(direction.x));
