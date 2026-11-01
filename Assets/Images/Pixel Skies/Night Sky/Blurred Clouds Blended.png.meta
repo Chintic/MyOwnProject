@@ -1,0 +1,652 @@
+fileFormatVersion: 2
+guid: 48af16d0a0b42a9478479ca9aa0cff55
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3790206545609093394
+    second: Blurred Clouds Blended_0
+  - first:
+      213: -5267626595900599777
+    second: Blurred Clouds Blended_1
+  - first:
+      213: 143710536288829527
+    second: Blurred Clouds Blended_2
+  - first:
+      213: 2723289437370974030
+    second: Blurred Clouds Blended_3
+  - first:
+      213: 7924899338540592956
+    second: Blurred Clouds Blended_4
+  - first:
+      213: 195911402138827613
+    second: Blurred Clouds Blended_5
+  - first:
+      213: -4089380806701460122
+    second: Blurred Clouds Blended_6
+  - first:
+      213: 7553613342694349157
+    second: Blurred Clouds Blended_7
+  - first:
+      213: -2543672300318041104
+    second: Blurred Clouds Blended_8
+  - first:
+      213: 509701786972810529
+    second: Blurred Clouds Blended_9
+  - first:
+      213: -7598689072087411426
+    second: Blurred Clouds Blended_10
+  - first:
+      213: 1686470228717860474
+    second: Blurred Clouds Blended_11
+  - first:
+      213: 4030600130609553897
+    second: Blurred Clouds Blended_12
+  - first:
+      213: -8458225585457777408
+    second: Blurred Clouds Blended_13
+  - first:
+      213: -3919608988258502282
+    second: Blurred Clouds Blended_14
+  - first:
+      213: 8024934698742913957
+    second: Blurred Clouds Blended_15
+  - first:
+      213: 8909863640909418714
+    second: Blurred Clouds Blended_16
+  - first:
+      213: 2493153364021275126
+    second: Blurred Clouds Blended_17
+  - first:
+      213: -215345669547243903
+    second: Blurred Clouds Blended_18
+  - first:
+      213: -8712801837657656821
+    second: Blurred Clouds Blended_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Blurred Clouds Blended_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 207
+        width: 29
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eee0c976a3b766bc0800000000000000
+      internalID: -3790206545609093394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blurred Clouds Blended_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 217
+        width: 5
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f12d1f52581a5e6b0800000000000000
+      internalID: -5267626595900599777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blurred Clouds Blended_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 169
+        width: 29
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7500af9a8ff8ef100800000000000000
+      internalID: 143710536288829527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blurred Clouds Blended_3
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 215
+        width: 15
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4ff11f80511bc520800000000000000
+      internalID: 2723289437370974030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blurred Clouds Blended_4
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 203
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3fa072e5f5eafd60800000000000000
+      internalID: 7924899338540592956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blurred Clouds Blended_5
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 167
+        width: 73
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5bfeebd16408b200800000000000000
+      internalID: 195911402138827613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blurred Clouds Blended_6
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 217
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6655241a2d99f37c0800000000000000
+      internalID: -4089380806701460122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blurred Clouds Blended_7
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 203
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56992fd7053d3d860800000000000000
+      internalID: 7553613342694349157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blurred Clouds Blended_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 206
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fbda82158f03bcd0800000000000000
+      internalID: -2543672300318041104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blurred Clouds Blended_9
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 184
+        width: 125
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12d65e12313d21700800000000000000
+      internalID: 509701786972810529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blurred Clouds Blended_10
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 190
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e15569b6c880c8690800000000000000
+      internalID: -7598689072087411426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blurred Clouds Blended_11
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 180
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a76fffadcbb876710800000000000000
+      internalID: 1686470228717860474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blurred Clouds Blended_12
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 163
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e120a8b6719fe730800000000000000
+      internalID: 4030600130609553897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blurred Clouds Blended_13
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 148
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0053ba4c4a85e9a80800000000000000
+      internalID: -8458225585457777408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blurred Clouds Blended_14
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 128
+        width: 159
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6797c646460ca99c0800000000000000
+      internalID: -3919608988258502282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blurred Clouds Blended_15
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 169
+        width: 22
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ab1740379b4e5f60800000000000000
+      internalID: 8024934698742913957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blurred Clouds Blended_16
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 131
+        width: 42
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad0139166c136ab70800000000000000
+      internalID: 8909863640909418714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blurred Clouds Blended_17
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 144
+        width: 42
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f9ee0976c5799220800000000000000
+      internalID: 2493153364021275126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blurred Clouds Blended_18
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 132
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 186c7b62140f20df0800000000000000
+      internalID: -215345669547243903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blurred Clouds Blended_19
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 128
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b027b0c14e8e51780800000000000000
+      internalID: -8712801837657656821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Blurred Clouds Blended_0: -3790206545609093394
+      Blurred Clouds Blended_1: -5267626595900599777
+      Blurred Clouds Blended_10: -7598689072087411426
+      Blurred Clouds Blended_11: 1686470228717860474
+      Blurred Clouds Blended_12: 4030600130609553897
+      Blurred Clouds Blended_13: -8458225585457777408
+      Blurred Clouds Blended_14: -3919608988258502282
+      Blurred Clouds Blended_15: 8024934698742913957
+      Blurred Clouds Blended_16: 8909863640909418714
+      Blurred Clouds Blended_17: 2493153364021275126
+      Blurred Clouds Blended_18: -215345669547243903
+      Blurred Clouds Blended_19: -8712801837657656821
+      Blurred Clouds Blended_2: 143710536288829527
+      Blurred Clouds Blended_3: 2723289437370974030
+      Blurred Clouds Blended_4: 7924899338540592956
+      Blurred Clouds Blended_5: 195911402138827613
+      Blurred Clouds Blended_6: -4089380806701460122
+      Blurred Clouds Blended_7: 7553613342694349157
+      Blurred Clouds Blended_8: -2543672300318041104
+      Blurred Clouds Blended_9: 509701786972810529
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 492650843240297484}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.72, z: 0}
+  m_LocalPosition: {x: 0, y: 0.22000003, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -154,11 +154,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1911738773788769783, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
       propertyPath: m_Offset.y
-      value: 0.42
+      value: -0.09
       objectReference: {fileID: 0}
     - target: {fileID: 1911738773788769783, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1911738773788769783, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -171,7 +171,7 @@ PrefabInstance:
     - target: {fileID: 3068626287769140108, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -6376348432289402992, guid: ef2d7f91e0072514484b3539b01680ce, type: 3}
+      objectReference: {fileID: 8530941504646180341, guid: ef2d7f91e0072514484b3539b01680ce, type: 3}
     - target: {fileID: 3068626287769140108, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -214,7 +214,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3931378545686739315, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
       propertyPath: m_Offset.y
-      value: 0.48
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: 3931378545686739315, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
       propertyPath: m_IsTrigger
@@ -222,7 +222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3931378545686739315, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3931378545686739315, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x

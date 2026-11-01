@@ -114,3 +114,107 @@
    - Pressionar `E` com as mãos vazias: a mensagem "Você não tem nada para jogar fora." deve aparecer.
 5. **Verificação de Desaparecimento do Diálogo**:
    - Confirmar que o balão de diálogo desaparece automaticamente após 2.5 a 3 segundos sem travar o jogo nem gerar erros de `NullReferenceException`.
+
+---
+
+# Current Revision: Finish and Decorate the Bakery Tilemap
+This revision extends the existing plan for the user's current request. Implement only the tilemap finishing scope below; earlier dialogue/input/refactoring steps are historical context, not authorization to repeat or expand them. User selected **Cozy balanced polish**: preserve the footprint, finish edges and paths, and add modest clusters of greenery and existing props.
+
+# Project Overview
+- Game Title: Bakery 2D (working title from existing plan).
+- High-Level Concept: Cozy top-down pixel-art bakery with ingredient collection and counter interactions. This pass makes the existing environment visually complete and readable without introducing new gameplay.
+- Players: Single-player, as described in the existing plan.
+- Inspiration / Reference Games: Existing plan references Overcooked, Stardew Valley, and Moonlighter; no recreation of their layouts.
+- Tone / Art Direction: Cozy Sprout Lands pixel art, matching the sprites already used in Bakery. Prefer existing Sprout Lands assets over the visually different Cainos pack.
+- Target Platform: StandaloneWindows64.
+- Screen Orientation / Resolution: Landscape; existing plan references 1920x1080. Preserve actual camera framing and reference resolution.
+- Render Pipeline: URP, confirmed at runtime through GraphicsSettings.currentRenderPipeline; active asset is Assets/Settings/UniversalRP.asset. Verify its assigned renderer's sorting configuration before edits.
+
+# Game Mechanics
+## Core Gameplay Loop
+Preserve movement, exploration, ingredient pickup, and disposal. Decoration should guide movement toward the counter and entrance and create recognizable visual landmarks without obscuring stations or reducing usable paths. Under MDA, prioritize cozy aesthetics while maintaining readable movement dynamics. Do not add recipes, interactions, animals, or progression.
+
+## Controls and Input Methods
+New Input System is reported active. Retain existing bindings and controller scripts; no input implementation is required. Test the player's actual movement and interaction bindings rather than assuming the historical plan's bindings still apply.
+
+# UI
+No UI changes. Preserve the existing HUD and dialogue. Environmental composition, not a new interface, provides guidance.
+
+Conceptual composition (adapt to the existing footprint after visual inspection; not a replacement layout):
+```text
+[existing boundaries / building walls]
+[small greenery cluster]  [existing counter and trash can]
+             clear working / movement area
+[small accent cluster]    clear approach to entrance
+[finished grass / path edges within existing map]
+```
+Keep foreground foliage from obscuring the player or interaction points unnecessarily. Avoid blanket decoration across every empty cell.
+
+# Key Asset & Context
+## Inspected scene state
+- Assets/Scenes/Bakery.unity: contains Ground, Walls, Decoration, WalkBehind on a rectangular Grid. Grid transforms are identity and tile anchors are (0.5, 0.5, 0).
+- Assets/Scenes/SampleScene.unity: loaded alongside Bakery, containing Player, Main Camera and UI. Preserve these gameplay objects.
+- Ground: 434 occupied cells, occupied coordinates (-10,-19) through (12,2). Contains grass variants and 58 Wooden_House_Walls_Tilset_6 tiles; inspect that sprite visually before deciding whether it is a floor tile despite its sheet name.
+- Walls: 2361 occupied cells, (-53,-61) through (41,4). Most are Grass_Hill_Tiles_v2 variants, plus five bush tiles and wooden walls. It uses Individual rendering, Objects sorting layer/order 0, Rigidbody2D, CompositeCollider2D and TilemapCollider2D.
+- Decoration and WalkBehind: empty, Chunk mode, Default layer/order 0. Default currently sorts above Objects, so blindly painting either layer would put details above characters.
+- Sorting layers in ascending order: Background, Walls, Objects, Default. There is no Instances layer; do not follow the historical plan's proposed Instances assignment.
+- Existing Player, Counter, TrashCan and chicken renderers use Objects/order 0. Retain the existing interactable instances and animal placement.
+- Main Camera reports CustomAxis with axis (0,0,0). Inspect the URP renderer configuration and effective sort behavior before fixing any conflict; do not assume camera output alone proves renderer sorting is broken.
+- Inspected Sprout Lands sheets use PPU 16 and Point filtering with mipmaps off. Wooden wall sheet is uncompressed; grass and furniture sheets report compression enabled. Do not change shared importer settings casually.
+- Dependency graph for Bakery has been inspected. Before modifying any additional shared asset, inspect its dependencies and dependents.
+
+## Files/assets in scope
+- Modify primarily Assets/Scenes/Bakery.unity: tile content, renderer configuration and collision ownership where needed.
+- Existing tile assets: Assets/MyTileMaps/Outdoors_Tilemap/Grass_Hill_Tiles_v2_*.asset and Bush_Tiles_*.asset; Assets/MyTileMaps/Indoors_Tilemap/STONE PATH_*.asset, Wooden_House_Walls_Tilset_*.asset, Wooden_House_Roof_Tilset_*.asset and Chest_*.asset as visually appropriate.
+- Existing imported sprites under Assets/ImportedAssets/Sprout Lands - Sprites - premium pack/Tilesets/: inspect grass detail sheets, Bush_Tiles.png, Basic_Furniture.png and building parts for suitable accents.
+- If an appropriate existing sliced sprite lacks a Tile asset, create only the necessary reusable Tile assets in Assets/MyTileMaps/Decoration_Tilemap/. Resolve sprite references by exact asset and sprite identity after visual inspection, not by guessing numeric suffixes.
+- Assets/Settings/UniversalRP.asset and its assigned renderer: inspect; change sorting only if necessary and after impact analysis. No package or shader source changes.
+- SampleScene: no planned edits; if an effective scene-local camera sorting correction proves necessary, pause for scope review before changing it.
+
+## Intended layer contract
+| Tilemap | Content | Rendering / collision |
+|---|---|---|
+| Ground | Base grass, floors, flat paths, non-occluding terrain | Background/order 0, Chunk; no blanket collision |
+| Decoration | Flat flowers, grass tufts, ground accents and decals | Background/order 1, Chunk; no collider |
+| Walls | Actual solid walls and intentional blocking terrain/cliff edges | Preserve Objects/order 0 and Individual where Y-sort is required; existing static composite collision restricted to intended blockers |
+| WalkBehind | Bushes and tall static props which must occlude characters according to Y | Objects/order 0, Individual; compatible effective Y axis and sprite sort point; collision only for solid bases |
+
+The GameObject layer and Sorting Layer are separate concerns. Preserve gameplay physics layers unless an existing collision mask requires otherwise. Tall props must not be forced permanently above the player via a high sorting order. Inspect sprite pivots and multi-cell assembly: preserve centered tiled wall pivots for seams; group complete multi-cell props if needed instead of introducing depth artifacts or globally changing sprite pivots. If solid WalkBehind props are added, use appropriately sized base colliders or vetted tile collider geometry; decorative foliage must not block movement across its entire canopy. Preserve intentional perimeter blockers when relocating terrain.
+
+# Implementation Steps
+1. **Establish visual baseline and protected areas.** Dependency: approval of this revision.
+   - Capture the current 2D scene, inspect the full occupied area and a close-up of the playable bakery; compare the unusually large Walls extent with visible content rather than deleting distant tiles.
+   - Inspect the actual sprite sheets to identify connected edge/corner pieces and available decorations.
+   - Record tile coordinates, transforms, colors and flags, collision setup, station footprints, entrances and current walkable routes. Preserve user-authored objects and unrelated unsaved work.
+   - Verify effective URP renderer sorting and physics masks before adjusting tilemap settings.
+2. **Correct tilemap responsibilities without redesigning the level.** Dependency: Step 1.
+   - In Bakery, classify grass sprites by visual function: move flat terrain currently on Walls into Ground; retain or relocate true blocking cliff edges based on their intended function.
+   - Preserve each moved tile's matrix/color/flags. Do not overwrite an occupied destination silently; resolve visually and preserve intentional stacked content.
+   - Move existing bush decoration to WalkBehind when it has height, or Decoration if it is a flat accent. Retain actual wooden walls on Walls. Inspect Wooden_House_Walls_Tilset_6 before treating it as misplaced.
+   - Set Decoration and WalkBehind renderers according to the layer contract. Rebuild collision geometry so relocated flat grass does not accidentally remain blocking, while intended boundaries remain solid.
+3. **Finish ground and structural seams.** Dependency: Step 2.
+   - Repair visible unintended holes, incorrect edge/corner transitions, wall joins and incomplete local paths using matching existing assets.
+   - Keep the footprint and intentional openings intact. Do not flood-fill the entire Walls bounding box, expand the map, roof over playable interiors, or turn intentional negative space into terrain.
+   - Add or connect short path accents only where they support the existing entrance and station approach. Keep character-width routes clear and preserve their existing clearance.
+4. **Add balanced decoration.** Dependency: Step 3.
+   - Add a few coherent clusters of low flowers/grass on Decoration near boundaries, leaving central movement spaces quiet.
+   - Add modest tall bush/prop accents on WalkBehind at suitable edges. Prefer available bakery-compatible furniture or storage details only when their sprite identity and scale are confirmed.
+   - Keep complete multi-tile silhouettes, coherent palette and PPU, avoid repeated stamp patterns, floating props, overlapping wall joins or visual duplicates of working interactables.
+   - Create minimal missing Tile assets from existing sprites as necessary; no new art generation or asset downloads.
+   - Perform scene edits with Undo support using an editor command with explicit tile/layer placement tables. Reuse and revise the same placement command for fixes; do not install a runtime level generator.
+5. **Validate, refine, and save.** Dependency: Steps 2–4.
+   - Capture a fresh 2D overview and close-ups; inspect seams, asset scale, overlapping silhouettes and readability.
+   - Test movement and front/behind sorting around walls and WalkBehind objects. Test counter and trash interactions and ensure existing animals remain reachable and unblocked.
+   - Make no more than three capture-and-fix rounds; obtain feedback if substantial unresolved visual issues remain.
+   - Save only the intended scene and newly created tile assets. Report actual changes, validation performed and any outstanding limits.
+
+# Verification & Testing
+- Layer audit: Ground contains flat base terrain; Decoration contains only nonblocking flat accents; Walls contains intended blockers; WalkBehind contains actual occluding props. Confirm Decoration stays below Objects regardless of Y.
+- Tile integrity: no lost cells outside explicitly corrected areas; tile transforms/colors retained; no accidental overwrite, missing sprite references or broken multi-tile silhouettes.
+- Collision: walk across former flat-grass cells on Walls where they are intended to be walkable; confirm solid walls/perimeter boundaries still block. Confirm no canopy-sized accidental obstacle.
+- Sorting: move north/south of tall props and front walls, checking that characters pass behind/in front naturally without per-tile fragmentation. Confirm effective axis is nonzero and consistent with the renderer's configuration.
+- Gameplay regression: player spawn, entrances and routes to Counter/TrashCan remain usable; interactions and item displays still work; animal behavior is not changed by decorative collision.
+- Visual: inspect full map and playable-area screenshots for visible gaps, incorrect corners, prop overlap, oversized furniture, repeated patterns and decoration obscuring station prompts.
+- Pixel consistency: match existing 16 PPU sprites; avoid fractional tile offsets, scaling, negative cell gaps or shared pivot changes. Inspect new tile sprites for Point filtering and mipmaps off. If compression visibly harms new details, perform shared-asset impact analysis and request any broader importer fix separately.
+- Console: check for new missing references, collider errors, runtime exceptions or compilation errors. Compare against pre-existing errors rather than claiming unrelated errors were fixed.
+- Persistence: reopen Bakery after saving and confirm tile/layer settings persist. Confirm SampleScene and shared prefab/controller/package assets remain unchanged unless separately approved.
