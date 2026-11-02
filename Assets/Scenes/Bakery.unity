@@ -27409,13 +27409,29 @@ PrefabInstance:
     m_TransformParent: {fileID: 734165678}
     m_Modifications:
     - target: {fileID: -8162617852510526961, guid: 45818d91f22ce8c4e85709a927d7de5a, type: 3}
+      propertyPath: placeSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 68c69fbb115543a9bb6bc31079a6c2ad, type: 3}
+    - target: {fileID: -8162617852510526961, guid: 45818d91f22ce8c4e85709a927d7de5a, type: 3}
       propertyPath: givenItem
       value: 
       objectReference: {fileID: 11400000, guid: c7d5141035931184ea8b10bef6039674, type: 2}
     - target: {fileID: -8162617852510526961, guid: 45818d91f22ce8c4e85709a927d7de5a, type: 3}
+      propertyPath: pickupSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: a1b087acd35a49057fe6d20a6d5b9c19, type: 3}
+    - target: {fileID: -8162617852510526961, guid: 45818d91f22ce8c4e85709a927d7de5a, type: 3}
       propertyPath: itemFornecido
       value: 
       objectReference: {fileID: 11400000, guid: c7d5141035931184ea8b10bef6039674, type: 2}
+    - target: {fileID: -5095208660152335064, guid: 45818d91f22ce8c4e85709a927d7de5a, type: 3}
+      propertyPath: m_Volume
+      value: 0.106
+      objectReference: {fileID: 0}
+    - target: {fileID: -5095208660152335064, guid: 45818d91f22ce8c4e85709a927d7de5a, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 103131419518281057, guid: 45818d91f22ce8c4e85709a927d7de5a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1
