@@ -27409,6 +27409,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 734165678}
     m_Modifications:
     - target: {fileID: -8162617852510526961, guid: 45818d91f22ce8c4e85709a927d7de5a, type: 3}
+      propertyPath: givenItem
+      value: 
+      objectReference: {fileID: 11400000, guid: c7d5141035931184ea8b10bef6039674, type: 2}
+    - target: {fileID: -8162617852510526961, guid: 45818d91f22ce8c4e85709a927d7de5a, type: 3}
       propertyPath: itemFornecido
       value: 
       objectReference: {fileID: 11400000, guid: c7d5141035931184ea8b10bef6039674, type: 2}
@@ -29784,7 +29788,7 @@ GameObject:
   - component: {fileID: 1569802082}
   - component: {fileID: 1569802083}
   m_Layer: 0
-  m_Name: Barn structures_9
+  m_Name: Nest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

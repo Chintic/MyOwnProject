@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class Counter : Interactable
 {
-    [SerializeField] private ItemsScriptableObject itemFornecido;
-    [SerializeField] private SpriteRenderer itemGivenSprite;
+    [SerializeField] private ItemsScriptableObject givenItem;
+    [SerializeField] private SpriteRenderer givenItemSprite;
 
     private void Awake()
     {
-        itemGivenSprite.sprite = itemFornecido.sprite;
+        givenItemSprite.sprite = givenItem.sprite;
     }
     public override void Interact(PlayerInteraction interactor)
     {
@@ -16,9 +16,12 @@ public class Counter : Interactable
 
         if (inventory.ItemNaMao == null)
         {
-            inventory.ItemNaMao = itemFornecido;
+            inventory.ItemNaMao = givenItem;
+            DialogueManager.Instance?.ShowMessage($"Você pegou: {givenItem.itemName}!");
+            givenItem = null;
+            givenItemSprite = null;
 
-            DialogueManager.Instance?.ShowMessage($"Você pegou: {itemFornecido.itemName}!");
+
         }
         else
         {

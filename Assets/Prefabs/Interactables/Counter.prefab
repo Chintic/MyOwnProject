@@ -268,8 +268,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70e7dad871e43d14ba497adc0c85f905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Counter
-  itemFornecido: {fileID: 0}
-  itemGivenSprite: {fileID: 1389834238957038225}
+  givenItem: {fileID: 0}
+  givenItemSprite: {fileID: 1389834238957038225}
 --- !u!210 &9105680250078267351
 SortingGroup:
   m_ObjectHideFlags: 0
