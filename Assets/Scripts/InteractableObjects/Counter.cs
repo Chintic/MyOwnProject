@@ -16,24 +16,24 @@ public class Counter : Interactable
     }
     public override void Interact(PlayerInteraction interactor)
     {
-        PlayerInventory inventory = interactor.Inventory;
+        //PlayerInventory inventory = interactor.Inventory;
 
         // !! looks a bit messy changing the two last variables every time
-        if (inventory.ItemNaMao == null && givenItem != null)
+        if (interactor.Inventory.ItemNaMao == null && givenItem != null)
         {
             sfx.PlayOneShot(pickupSfx);
-            inventory.ItemNaMao = givenItem;
+            interactor.Inventory.ItemNaMao = givenItem;
             givenItem = null;
             givenItemSprite.sprite = null;
 
 
         }
-        else if (inventory.ItemNaMao != null && givenItem == null)
+        else if (interactor.Inventory.ItemNaMao != null && givenItem == null)
         {
             sfx.PlayOneShot(placeSfx);
-            givenItem = inventory.ItemNaMao;
+            givenItem = interactor.Inventory.ItemNaMao;
             givenItemSprite.sprite = givenItem.sprite;
-            inventory.ItemNaMao = null;
+            interactor.Inventory.ItemNaMao = null;
 
         }
     }

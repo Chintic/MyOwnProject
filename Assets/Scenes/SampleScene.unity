@@ -419,10 +419,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.048022598
-    y: 0.024647888
-    width: 0.9039548
-    height: 0.9507042
+    x: 0
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -631,7 +631,7 @@ GameObject:
   - component: {fileID: 904286954}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -737,6 +737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 239b553f05937914d91e70641d79910f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
+  heldItem: {fileID: 175795131}
 --- !u!114 &904286949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -749,7 +750,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d172d955e151cd04db307c06a226fedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInventory
-  itemNaMao: {fileID: 0}
   itemNaMaoSpriteRenderer: {fileID: 175795132}
 --- !u!114 &904286950
 MonoBehaviour:
@@ -1127,7 +1127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d172d955e151cd04db307c06a226fedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInventory
-  itemNaMao: {fileID: 0}
   itemNaMaoSpriteRenderer: {fileID: 0}
 --- !u!114 &1656322731
 MonoBehaviour:
@@ -1154,6 +1153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 239b553f05937914d91e70641d79910f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
+  heldItem: {fileID: 0}
 --- !u!61 &1656322733
 BoxCollider2D:
   m_ObjectHideFlags: 0
