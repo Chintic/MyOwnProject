@@ -273,6 +273,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Counter
   givenItem: {fileID: 0}
   givenItemSprite: {fileID: 1389834238957038225}
+  pickupSfx: {fileID: 8300000, guid: a1b087acd35a49057fe6d20a6d5b9c19, type: 3}
+  placeSfx: {fileID: 8300000, guid: 68c69fbb115543a9bb6bc31079a6c2ad, type: 3}
 --- !u!210 &9105680250078267351
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -297,7 +299,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: a1b087acd35a49057fe6d20a6d5b9c19, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

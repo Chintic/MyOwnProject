@@ -1,6 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+// todo: update is overcharged, split on functions
 
 public class Chicken_Interactable : Interactable
 {
@@ -16,9 +17,11 @@ public class Chicken_Interactable : Interactable
 
     // State
     private bool follow;
+    private bool onNest;
     private Vector3 spawnLocation;
     private Vector3 direction;
     private Vector3 targetPosition;
+    
 
     private enum ChickenState
     {
@@ -58,22 +61,22 @@ public class Chicken_Interactable : Interactable
 
 
         // if this is the first chicken, then follow the player. Else follow the last chicken on list.
-        if (index == 0)
+        if (follow && index == 0)
         {
-            targetPosition = interactor.GetComponentInParent<Transform>().position;
+            targetPosition = interactor.GetComponentInParent<Transform>().position + followOffset;
         }
-        else if (index > 0)
+        else if (follow && index > 0)
         {
-            targetPosition = chickensList[index - 1].transform.position;
+            targetPosition = chickensList[index - 1].transform.position + followOffset;
         }
 
-        if (follow && 
-            Vector3.Distance(targetPosition, transform.position - followOffset) > 0.1f)
+        if (follow && Vector3.Distance(targetPosition, transform.position) > 0.1f)
         {
             state = ChickenState.Walking;
             // Move the chicken towards the player
-            direction = (targetPosition + followOffset - transform.position).normalized;
-            transform.position += direction * speed * Time.deltaTime;
+            // reminder: direction we use to animate
+            direction = (targetPosition - transform.position).normalized;
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
 
             if(Vector3.Distance(targetPosition, transform.position) > maximumDistance)
             {
@@ -83,8 +86,9 @@ public class Chicken_Interactable : Interactable
             }
         }
 
-        else if (!follow)
+        else if (!follow && !onNest)
         {
+            // reminder: direction we use to animate
             direction = (spawnLocation - transform.position).normalized;
 
             // MoveTowards helps us and is more adequate when we want to make an object move to given location
@@ -100,10 +104,20 @@ public class Chicken_Interactable : Interactable
             }
         }
 
-        else 
+        else if (!onNest)
         {
-            state = ChickenState.Sleeping;
+            state = ChickenState.Idle;
         }
+
+        else if (onNest)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+            if(transform.position == targetPosition)
+            {
+                state = ChickenState.Sleeping;
+            }
+        }
+
         Animate();
     }
 
@@ -115,5 +129,27 @@ public class Chicken_Interactable : Interactable
         if (direction.x != 0f)
             anim.SetFloat("X", Mathf.Sign(direction.x));
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (collision.gameObject.CompareTag("Nest"))
+        {
+            Debug.Log("kyaaaa");
+            onNest = true;
+            follow = false;
+            targetPosition = collision.gameObject.GetComponent<Transform>().transform.position;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Nest"))
+        {
+            onNest = false;
+        }
+    }
+
+
 
 }
