@@ -8,10 +8,10 @@ public class PlayerMovement : MonoBehaviour
 
     public event Action<Vector2> OnMovementChanged;
 
-    
-
     private Rigidbody2D rb;
     private Vector2 moveInput;
+
+    public Vector2 FacingDirection { get; private set; }
 
     // public Animator anim;
 
@@ -32,6 +32,11 @@ public class PlayerMovement : MonoBehaviour
 
         // Normaliza para não andar mais rápido na diagonal
         moveInput = moveInput.normalized;
+
+        if (moveInput != Vector2.zero)
+        {
+            FacingDirection = moveInput;
+        }
 
         // Para o uso de Action, events e etc, irei retirar o Animate daqui, criar um Action para gritar que o player está se movendo,
         // e o Animator irá escutar esse Action para animar o player. Nesse action irei passar o vetor de movimento, e o Animator irá usar esse vetor para animar o player.

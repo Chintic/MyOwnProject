@@ -2,12 +2,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // todo: update is overcharged, split on functions
+// there is something very wrong regarding stay on Nest
 
 public class Chicken_Interactable : Interactable
 {
     // References
     [SerializeField] private Animator anim;
     private PlayerInteraction interactor;
+
+    private Nest nest;
 
     // Settings
     [Header("Movement Settings")]
@@ -132,20 +135,23 @@ public class Chicken_Interactable : Interactable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if (collision.gameObject.CompareTag("Nest"))
+        nest = collision.gameObject.GetComponent<Nest>();
+        if (collision.gameObject.CompareTag("Nest") && !nest.hasChicken)
         {
-            Debug.Log("kyaaaa");
+            nest.hasChicken = true;
             onNest = true;
             follow = false;
             targetPosition = collision.gameObject.GetComponent<Transform>().transform.position;
+            chickensList.Remove(this);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Nest"))
+        nest = collision.gameObject.GetComponent<Nest>();
+        if (collision.gameObject.CompareTag("Nest") && !nest.hasChicken)
         {
+            nest.hasChicken = false;
             onNest = false;
         }
     }
