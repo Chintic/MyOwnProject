@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 // todo: update is overcharged, split on functions
@@ -15,7 +16,8 @@ public class Chicken_Interactable : Interactable
     // Settings
     [Header("Movement Settings")]
     [SerializeField] private float maximumDistance = 5f;
-    [SerializeField] private float speed = 2f;
+    [SerializeField] private float defaultSpeed = 2f;
+    private float speed;
     [SerializeField] private Vector3 followOffset = new(-1f, -0.5f, 0f);
 
     // State
@@ -41,6 +43,7 @@ public class Chicken_Interactable : Interactable
     private void Awake()
     {
         spawnLocation = transform.position;
+        speed = defaultSpeed;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -51,14 +54,17 @@ public class Chicken_Interactable : Interactable
         if (!chickensList.Contains(this))
         {
             chickensList.Add(this);
-            speed *= Mathf.Pow(0.9f, chickensList.Count - 1);
+            UpdateChickenSpeeds();
         }
         follow = true;
+
+        // forces the chicken to "leave" the nest
+        onNest = false;
     }
 
     private void Update()
     {
-        
+
 
         int index = chickensList.IndexOf(this);
 
@@ -133,25 +139,36 @@ public class Chicken_Interactable : Interactable
             anim.SetFloat("X", Mathf.Sign(direction.x));
     }
 
+    private static void UpdateChickenSpeeds()
+    {
+        for (int i = 0; i < chickensList.Count; i++)
+        {
+            Chicken_Interactable chicken = chickensList[i];
+            chicken.speed = chicken.defaultSpeed * Mathf.Pow(0.9f, i);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         nest = collision.gameObject.GetComponent<Nest>();
-        if (collision.gameObject.CompareTag("Nest") && !nest.hasChicken)
+        if (collision.gameObject.CompareTag("Nest") && nest.chicken == null)
         {
-            nest.hasChicken = true;
+            nest.chicken = this;
             onNest = true;
             follow = false;
             targetPosition = collision.gameObject.GetComponent<Transform>().transform.position;
             chickensList.Remove(this);
+            UpdateChickenSpeeds();
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         nest = collision.gameObject.GetComponent<Nest>();
-        if (collision.gameObject.CompareTag("Nest") && !nest.hasChicken)
+        if (collision.gameObject.CompareTag("Nest") && nest.chicken == this)
         {
-            nest.hasChicken = false;
+
+            nest.chicken = null;
             onNest = false;
         }
     }

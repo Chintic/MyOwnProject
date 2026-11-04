@@ -2,5 +2,5 @@ using UnityEngine;
 
 public class Nest : MonoBehaviour
 {
-    public bool hasChicken = false;
+    public Chicken_Interactable chicken = null;
 }

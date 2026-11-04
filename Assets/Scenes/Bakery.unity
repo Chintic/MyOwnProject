@@ -30153,6 +30153,7 @@ GameObject:
   - component: {fileID: 1569802082}
   - component: {fileID: 1569802083}
   - component: {fileID: 1569802084}
+  - component: {fileID: 1569802085}
   m_Layer: 0
   m_Name: Nest
   m_TagString: Nest
@@ -30281,6 +30282,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.1592221, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1569802085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569802081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76bced2705a482840a430637e9948414, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Nest
+  hasChicken: 0
 --- !u!4 &1786641704 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 103131419518281057, guid: 45818d91f22ce8c4e85709a927d7de5a, type: 3}
