@@ -25150,8 +25150,8 @@ Tilemap:
   - first: {x: 8, y: -3, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 15
-      m_TileSpriteIndex: 14
+      m_TileIndex: 26
+      m_TileSpriteIndex: 25
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -27165,7 +27165,7 @@ Tilemap:
     m_RefCount: 186
     m_Data: {fileID: 11400000, guid: f923a9dd9e5230243a19e07083a1b6d5, type: 2}
   - serializedVersion: 2
-    m_RefCount: 180
+    m_RefCount: 179
     m_Data: {fileID: 11400000, guid: af24fbe47a450c54eac54a6e940e712e, type: 2}
   - serializedVersion: 2
     m_RefCount: 229
@@ -27197,6 +27197,9 @@ Tilemap:
   - serializedVersion: 2
     m_RefCount: 23
     m_Data: {fileID: 11400000, guid: 8d81248ffe50090418cef1b38ccfbd37, type: 2}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 640cf40aaaf44c344afb55038dafa6b9, type: 2}
   m_TileSpriteArray:
   - serializedVersion: 2
     m_RefCount: 203
@@ -27241,7 +27244,7 @@ Tilemap:
     m_RefCount: 186
     m_Data: {fileID: 1120754007, guid: 4da1b045875faf5438174103141a1a1a, type: 3}
   - serializedVersion: 2
-    m_RefCount: 180
+    m_RefCount: 179
     m_Data: {fileID: 1817663278, guid: 4da1b045875faf5438174103141a1a1a, type: 3}
   - serializedVersion: 2
     m_RefCount: 229
@@ -27274,8 +27277,8 @@ Tilemap:
     m_RefCount: 32
     m_Data: {fileID: 1873331742, guid: 4da1b045875faf5438174103141a1a1a, type: 3}
   - serializedVersion: 2
-    m_RefCount: 0
-    m_Data: {fileID: -849207755, guid: 4da1b045875faf5438174103141a1a1a, type: 3}
+    m_RefCount: 1
+    m_Data: {fileID: 1358125415, guid: 4039084e3d3ad4149bde4cab4f00a08a, type: 3}
   m_TileMatrixArray:
   - serializedVersion: 2
     m_RefCount: 2607
@@ -30294,7 +30297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76bced2705a482840a430637e9948414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Nest
-  hasChicken: 0
+  chicken: {fileID: 0}
 --- !u!4 &1786641704 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 103131419518281057, guid: 45818d91f22ce8c4e85709a927d7de5a, type: 3}
