@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ParallaxBackground : MonoBehaviour
 {
-    [SerializeField] private Transform cameraTransform;
+    private Transform cameraTransform;
 
     // Higher values make the scenery appear farther away.
     [SerializeField, Range(0f, 1f)]
@@ -11,8 +11,11 @@ public class ParallaxBackground : MonoBehaviour
     private Vector3 initialCameraPosition;
     private Vector3 initialBackgroundPosition;
 
+
     private void Start()
     {
+        // Camera.main searches for an active Camera with tag "MainCamera"
+        cameraTransform = Camera.main.transform;
         if (cameraTransform == null)
         {
             enabled = false;
