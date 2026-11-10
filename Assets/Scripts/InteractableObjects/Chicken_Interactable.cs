@@ -40,6 +40,20 @@ public class Chicken_Interactable : Interactable
     // Shared data
     private static List<Chicken_Interactable> chickensList = new();
 
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    private static void ResetStaticState()
+    {
+        chickensList.Clear();
+    }
+
+    private void OnDestroy()
+    {
+        if (chickensList.Remove(this))
+        {
+            UpdateChickenSpeeds();
+        }
+    }
+
     private void Awake()
     {
         spawnLocation = transform.position;
@@ -64,7 +78,10 @@ public class Chicken_Interactable : Interactable
 
     private void Update()
     {
-
+        if (chickensList.RemoveAll(chicken => chicken == null) > 0)
+        {
+            UpdateChickenSpeeds();
+        }
 
         int index = chickensList.IndexOf(this);
 
@@ -141,6 +158,7 @@ public class Chicken_Interactable : Interactable
 
     private static void UpdateChickenSpeeds()
     {
+        chickensList.RemoveAll(chicken => chicken == null);
         for (int i = 0; i < chickensList.Count; i++)
         {
             Chicken_Interactable chicken = chickensList[i];
