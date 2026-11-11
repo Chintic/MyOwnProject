@@ -40,6 +40,8 @@ public class Chicken_Interactable : Interactable
     // Shared data
     private static List<Chicken_Interactable> chickensList = new();
 
+    // Those methods are needed to prevent static lists from keeping loaded even when I stop playing or remove chickens from list when I move between scenes
+
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     private static void ResetStaticState()
     {
@@ -141,10 +143,12 @@ public class Chicken_Interactable : Interactable
             if(transform.position == targetPosition)
             {
                 state = ChickenState.Sleeping;
+                LayEgg();
             }
         }
 
         Animate();
+        
     }
 
     private void Animate()
@@ -166,29 +170,46 @@ public class Chicken_Interactable : Interactable
         }
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (!collision.TryGetComponent<Nest>(out Nest exitingNest))
+            return;
+
+        if (exitingNest == nest && nest.chicken == this)
+        {
+            nest.chicken = null;
+            nest = null;
+            onNest = false;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        nest = collision.gameObject.GetComponent<Nest>();
-        if (collision.gameObject.CompareTag("Nest") && nest.chicken == null)
+        if (!collision.TryGetComponent<Nest>(out Nest enteredNest))
+            return;
+
+        if (enteredNest.chicken == null)
         {
+            nest = enteredNest;
             nest.chicken = this;
             onNest = true;
             follow = false;
-            targetPosition = collision.gameObject.GetComponent<Transform>().transform.position;
+            targetPosition = nest.transform.position;
+
             chickensList.Remove(this);
             UpdateChickenSpeeds();
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void LayEgg()
     {
-        nest = collision.gameObject.GetComponent<Nest>();
-        if (collision.gameObject.CompareTag("Nest") && nest.chicken == this)
+        if(nest.Item == null)
         {
-
-            nest.chicken = null;
-            onNest = false;
+            Debug.Log(nest);
+            // Resources.Load will load a Scriptable object of given name
+            nest.Item = Resources.Load<ItemsScriptableObject>("Items/Egg_SO");
         }
+        
     }
 
 
