@@ -512,6 +512,7 @@ GameObject:
   - component: {fileID: 1569802083}
   - component: {fileID: 1569802084}
   - component: {fileID: 1569802085}
+  - component: {fileID: 1569802086}
   m_Layer: 0
   m_Name: Nest
   m_TagString: Nest
@@ -655,6 +656,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Nest
   chicken: {fileID: 0}
   itemRenderer: {fileID: 1780627530}
+--- !u!210 &1569802086
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569802081}
+  m_Enabled: 1
+  m_SortingLayerID: 14187529
+  m_SortingLayer: -1
+  m_SortingOrder: -1
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &1780627528
 GameObject:
   m_ObjectHideFlags: 0

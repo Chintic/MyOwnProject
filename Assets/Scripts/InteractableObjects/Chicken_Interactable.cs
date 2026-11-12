@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -9,7 +10,10 @@ public class Chicken_Interactable : Interactable
 {
     // References
     [SerializeField] private Animator anim;
+    [SerializeField] private float layEggTimer = 5f;
     private PlayerInteraction interactor;
+
+    private bool isLayingEgg;
 
     private Nest nest;
 
@@ -143,7 +147,12 @@ public class Chicken_Interactable : Interactable
             if(transform.position == targetPosition)
             {
                 state = ChickenState.Sleeping;
-                LayEgg();
+
+                if (!isLayingEgg)
+                {
+                    StartCoroutine(LayEgg());
+                }
+
             }
         }
 
@@ -201,15 +210,17 @@ public class Chicken_Interactable : Interactable
         }
     }
 
-    private void LayEgg()
+    private IEnumerator LayEgg()
     {
+        isLayingEgg = true;
+        yield return new WaitForSeconds(layEggTimer);
         if(nest.Item == null)
         {
-            Debug.Log(nest);
             // Resources.Load will load a Scriptable object of given name
             nest.Item = Resources.Load<ItemsScriptableObject>("Items/Egg_SO");
         }
-        
+        isLayingEgg = false;
+
     }
 
 
