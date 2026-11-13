@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
 
 // todo: update is overcharged, split on functions
@@ -30,7 +29,7 @@ public class Chicken_Interactable : Interactable
     private Vector3 spawnLocation;
     private Vector3 direction;
     private Vector3 targetPosition;
-    
+
 
     private enum ChickenState
     {
@@ -110,7 +109,7 @@ public class Chicken_Interactable : Interactable
             direction = (targetPosition - transform.position).normalized;
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
 
-            if(Vector3.Distance(targetPosition, transform.position) > maximumDistance)
+            if (Vector3.Distance(targetPosition, transform.position) > maximumDistance)
             {
                 follow = false;
                 chickensList.Remove(this);
@@ -144,7 +143,7 @@ public class Chicken_Interactable : Interactable
         else if (onNest)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-            if(transform.position == targetPosition)
+            if (transform.position == targetPosition)
             {
                 state = ChickenState.Sleeping;
 
@@ -157,7 +156,7 @@ public class Chicken_Interactable : Interactable
         }
 
         Animate();
-        
+
     }
 
     private void Animate()
@@ -214,7 +213,9 @@ public class Chicken_Interactable : Interactable
     {
         isLayingEgg = true;
         yield return new WaitForSeconds(layEggTimer);
-        if(nest.Item == null)
+
+        // I had to check for nest != null so I avoid causing null pointer error
+        if (nest != null && nest.Item == null)
         {
             // Resources.Load will load a Scriptable object of given name
             nest.Item = Resources.Load<ItemsScriptableObject>("Items/Egg_SO");
