@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7399248151697604751}
   - component: {fileID: 2165753940304444583}
   - component: {fileID: -3558267430355338706}
+  - component: {fileID: 6872213374404059898}
   m_Layer: 0
   m_Name: Chicken
   m_TagString: Untagged
@@ -155,8 +156,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chicken_Interactable
   anim: {fileID: 2165753940304444583}
+  layEggTimer: 5
   maximumDistance: 5
-  speed: 3
+  defaultSpeed: 2
   followOffset: {x: 0, y: -0.25, z: 0}
 --- !u!95 &2165753940304444583
 Animator:
@@ -207,3 +209,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &6872213374404059898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8717045857840471655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fe9730e0b5c6d24b9141562f1828b59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChickenAppearance
+  animator: {fileID: 2165753940304444583}
+  colors:
+  - {fileID: 9100000, guid: 20c808d420faa1c49840c4ef3078eaa5, type: 2}
+  - {fileID: 22100000, guid: a809ea6a797c7da448caa3b7718567b8, type: 2}
+  - {fileID: 22100000, guid: efa9b9dacdb13424bb79ab5da1cdec0f, type: 2}
+  - {fileID: 22100000, guid: 9f7200c675dd3604ea78dd9016d36802, type: 2}
+  - {fileID: 22100000, guid: 7e8a292c06f714e45bdf28ee45722315, type: 2}
