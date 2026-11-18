@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Chicken_Red_Override
+  m_Controller: {fileID: 9100000, guid: 20c808d420faa1c49840c4ef3078eaa5, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 59e4fe5d2c56c22419938010c4ce2846, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 64e1fde971415104bb2399aca0890b53, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: a7d4d7ead202db94c8d393d50a060d2d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 101352df3151458418a9f5deff2cd114, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ea861eb2b54f38e478643be88c1de548, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 56eb892bbe4fc8e4f874ffc5d445ae4c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: fce7126f3a022b14d8867e5a391a1de9, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6de634a95b104c04995775d8b71dada3, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ee28641f00a28894c9be5c1523d06526, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6f8a29991c04ca84fa85b9b58582b0ee, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 23dd115ab38d27c49b22210a634deff8, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 480269d2360ca864e8986681c4a9d694, type: 2}
