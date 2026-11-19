@@ -12,6 +12,8 @@ public class Chicken_Interactable : Interactable
     [SerializeField] private float layEggTimer = 5f;
     private PlayerInteraction interactor;
 
+    [SerializeField] private ChickenAppearance appearance;
+
     private bool isLayingEgg;
 
     private Nest nest;
@@ -212,16 +214,24 @@ public class Chicken_Interactable : Interactable
     private IEnumerator LayEgg()
     {
         isLayingEgg = true;
+
+        // Remember the nest where this laying attempt started.
+        Nest layingNest = nest;
+
         yield return new WaitForSeconds(layEggTimer);
 
-        // I had to check for nest != null so I avoid causing null pointer error
-        if (nest != null && nest.Item == null)
+        if (onNest &&
+            layingNest != null &&
+            nest == layingNest &&
+            layingNest.chicken == this &&
+            layingNest.Item == null &&
+            appearance != null &&
+            appearance.Egg != null)
         {
-            // Resources.Load will load a Scriptable object of given name
-            nest.Item = Resources.Load<ItemsScriptableObject>("Items/Egg_SO");
+            layingNest.Item = appearance.Egg;
         }
-        isLayingEgg = false;
 
+        isLayingEgg = false;
     }
 
 

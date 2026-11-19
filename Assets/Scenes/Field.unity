@@ -704,23 +704,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8318100860392111220, guid: 45f6802ab0115d74d8981bd73b358dbf, type: 3}
   m_PrefabInstance: {fileID: 799037212}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &898458449 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8717045857840471655, guid: 45f6802ab0115d74d8981bd73b358dbf, type: 3}
-  m_PrefabInstance: {fileID: 1426138043}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &898458455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 898458449}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 543c3a0125bd8b24a853f2a56126d310, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FadeTest
 --- !u!1001 &1426138043
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -729,10 +712,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 536064742}
     m_Modifications:
-    - target: {fileID: 2165753940304444583, guid: 45f6802ab0115d74d8981bd73b358dbf, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 22100000, guid: 9f7200c675dd3604ea78dd9016d36802, type: 2}
     - target: {fileID: 8318100860392111220, guid: 45f6802ab0115d74d8981bd73b358dbf, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.54999995
@@ -780,10 +759,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8717045857840471655, guid: 45f6802ab0115d74d8981bd73b358dbf, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 898458455}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45f6802ab0115d74d8981bd73b358dbf, type: 3}
 --- !u!4 &1426138044 stripped
 Transform:
