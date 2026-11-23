@@ -15,6 +15,7 @@ public class Chicken_Interactable : Interactable
     [SerializeField] private ChickenAppearance appearance;
 
     private bool isLayingEgg;
+    public bool isHatched = false;
 
     private Nest nest;
 
@@ -67,7 +68,6 @@ public class Chicken_Interactable : Interactable
         speed = defaultSpeed;
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void Interact(PlayerInteraction interactor)
     {
         DialogueManager.Instance?.ShowMessage("Piu!");
@@ -85,6 +85,8 @@ public class Chicken_Interactable : Interactable
 
     private void Update()
     {
+
+        // each frame this will remove null items from the list and then update the remaining chicken speeds
         if (chickensList.RemoveAll(chicken => chicken == null) > 0)
         {
             UpdateChickenSpeeds();

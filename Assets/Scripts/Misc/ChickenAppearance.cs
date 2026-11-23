@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ChickenAppearance : MonoBehaviour
 {
+    private bool isHatched;
     [System.Serializable]
     private class ColorVariant
     {
@@ -16,7 +17,13 @@ public class ChickenAppearance : MonoBehaviour
 
     private void Awake()
     {
-        RandomizeColor();
+        isHatched = GetComponentInParent<Chicken_Interactable>().isHatched;
+        if(!isHatched)
+        {
+            RandomizeColor();
+        }
+
+
     }
 
     [ContextMenu("Randomize Chicken Color")]
@@ -40,5 +47,25 @@ public class ChickenAppearance : MonoBehaviour
 
         animator.runtimeAnimatorController = selectedColor.controller;
         Egg = selectedColor.egg;
+    }
+
+    public void SetColorFromEgg(ItemsScriptableObject sourceEgg)
+    {
+        if (sourceEgg == null || animator == null || colors == null)
+            return;
+
+        foreach (ColorVariant variant in colors)
+        {
+            if (variant != null &&
+                variant.egg == sourceEgg &&
+                variant.controller != null)
+            {
+                animator.runtimeAnimatorController = variant.controller;
+                Egg = variant.egg;
+                return;
+            }
+        }
+
+        Debug.LogWarning("No chicken color matches this egg.", this);
     }
 }

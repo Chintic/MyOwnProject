@@ -102,11 +102,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 334705790887813431, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1
+      value: 9.5
       objectReference: {fileID: 0}
     - target: {fileID: 334705790887813431, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 334705790887813431, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
       propertyPath: m_LocalPosition.z
@@ -118,15 +118,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 334705790887813431, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 334705790887813431, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 334705790887813431, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 334705790887813431, guid: 6d2cbcc06960f834f8e9455c7fad9278, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70e7dad871e43d14ba497adc0c85f905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Counter
-  givenItem: {fileID: 0}
+  givenItem: {fileID: 11400000, guid: cd9cef4820b21a147b63dd25dfab1517, type: 2}
   givenItemSprite: {fileID: 1389834238957038225}
   pickupSfx: {fileID: 8300000, guid: a1b087acd35a49057fe6d20a6d5b9c19, type: 3}
   placeSfx: {fileID: 8300000, guid: 68c69fbb115543a9bb6bc31079a6c2ad, type: 3}

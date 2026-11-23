@@ -13,8 +13,7 @@ public class Incubator : Interactable
 
     private void Update()
     {
-
-        if(egg == Resources.Load<ItemsScriptableObject>("Items/Egg_SO") && !isIncubating)
+        if (egg != null && egg.itemName == "Egg" && !isIncubating)
         {
             StartCoroutine(Incubate());
         }
@@ -32,7 +31,7 @@ public class Incubator : Interactable
             UpdateSprite();
 
         }
-        else if (interactor.Inventory.ItemNaMao == Resources.Load<ItemsScriptableObject>("Items/Egg_SO") && egg == null)
+        else if (interactor.Inventory.ItemNaMao.itemName == "Egg" && egg == null)
         {
             egg = interactor.Inventory.ItemNaMao;
             interactor.Inventory.ItemNaMao = null;
@@ -44,14 +43,37 @@ public class Incubator : Interactable
     {
         isIncubating = true;
 
+        ItemsScriptableObject incubatingEgg = egg;
+
         yield return new WaitForSeconds(incubateTimer);
+
+        // Cancel if the egg was removed or replaced.
+        if (egg == null || egg != incubatingEgg)
+        {
+            isIncubating = false;
+            yield break;
+        }
+
+        Vector3 spawnPosition =
+            transform.position + new Vector3(0f, -1f, 0f);
+
+        GameObject chicken = Instantiate(
+            chickenPrefab, spawnPosition, Quaternion.identity);
+
+        Chicken_Interactable interactable =
+            chicken.GetComponent<Chicken_Interactable>();
+
+        if (interactable != null)
+            interactable.isHatched = true;
+
+        ChickenAppearance appearance =
+            chicken.GetComponentInChildren<ChickenAppearance>();
+
+        if (appearance != null)
+            appearance.SetColorFromEgg(incubatingEgg);
 
         egg = null;
         UpdateSprite();
-
-        Vector3 spawnPosition = transform.position + new Vector3(0f, -1f, 0f);
-
-        Instantiate(chickenPrefab, spawnPosition, Quaternion.identity);
 
         isIncubating = false;
     }
