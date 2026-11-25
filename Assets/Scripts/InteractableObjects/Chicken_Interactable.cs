@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,43 +9,51 @@ using UnityEngine;
 public class Chicken_Interactable : Interactable
 {
     // References
+    // DONE
     [SerializeField] private Animator anim;
-    [SerializeField] private float layEggTimer = 5f;
-    private PlayerInteraction interactor;
-
     [SerializeField] private ChickenAppearance appearance;
-
-    private bool isLayingEgg;
-    public bool isHatched = false;
-
+    private PlayerInteraction interactor;
     private Nest nest;
 
     // Settings
+    [SerializeField] private float layEggTimer = 5f;
+
     [Header("Movement Settings")]
     [SerializeField] private float maximumDistance = 5f;
     [SerializeField] private float defaultSpeed = 2f;
-    private float speed;
     [SerializeField] private Vector3 followOffset = new(-1f, -0.5f, 0f);
 
-    // State
-    private bool follow;
-    private bool onNest;
+    // Movement
+    private float speed;
     private Vector3 spawnLocation;
     private Vector3 direction;
     private Vector3 targetPosition;
 
+    private bool isMoving;
 
-    private enum ChickenState
+    public bool IsMoving => isMoving;
+
+    // State
+    public enum ChickenState
     {
         Idle,
-        Walking,
-        Sleeping
+        Sleeping,
+        Following,
+        LayingEgg,
+        OnNest,
+        ReturningNest,
+        ReturningHome
     }
 
     private ChickenState state;
+    public bool isHatched = false;
 
     // Shared data
     private static List<Chicken_Interactable> chickensList = new();
+
+    // Properties
+    public ChickenState State => state;
+    public Vector3 Direction => direction;
 
     // Those methods are needed to prevent static lists from keeping loaded even when I stop playing or remove chickens from list when I move between scenes
 
@@ -77,14 +86,13 @@ public class Chicken_Interactable : Interactable
             chickensList.Add(this);
             UpdateChickenSpeeds();
         }
-        follow = true;
+        state = ChickenState.Following;
 
-        // forces the chicken to "leave" the nest
-        onNest = false;
     }
 
     private void Update()
     {
+
 
         // each frame this will remove null items from the list and then update the remaining chicken speeds
         if (chickensList.RemoveAll(chicken => chicken == null) > 0)
@@ -92,86 +100,104 @@ public class Chicken_Interactable : Interactable
             UpdateChickenSpeeds();
         }
 
+        switch (state)
+        {
+            case ChickenState.Idle:
+                break;
+
+            case ChickenState.Following:
+                Follow();
+                break;
+            case ChickenState.ReturningHome:
+                ReturnHome();
+                break;
+            case ChickenState.ReturningNest:
+                ReturnNest();
+                break;
+            case ChickenState.OnNest:
+                isMoving = false;
+                break;
+
+            case ChickenState.Sleeping:
+                isMoving = false;
+                break;
+
+            case ChickenState.LayingEgg:
+                isMoving = false;
+                break;
+        }
+
+    }
+
+    private void Follow()
+    {
+        
         int index = chickensList.IndexOf(this);
 
-
         // if this is the first chicken, then follow the player. Else follow the last chicken on list.
-        if (follow && index == 0)
+        if (index == 0)
         {
             targetPosition = interactor.GetComponentInParent<Transform>().position + followOffset;
         }
-        else if (follow && index > 0)
+        else if (index > 0)
         {
             targetPosition = chickensList[index - 1].transform.position + followOffset;
         }
-
-        if (follow && Vector3.Distance(targetPosition, transform.position) > 0.1f)
+        if (Vector3.Distance(targetPosition, transform.position) > 0.1f)
         {
-            state = ChickenState.Walking;
-            // Move the chicken towards the player
-            // reminder: direction we use to animate
+            isMoving = true;
+
             direction = (targetPosition - transform.position).normalized;
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(
+                transform.position, targetPosition, speed * Time.deltaTime);
 
             if (Vector3.Distance(targetPosition, transform.position) > maximumDistance)
             {
-                follow = false;
                 chickensList.Remove(this);
-                speed = 2f;
+                UpdateChickenSpeeds();
+                speed = defaultSpeed;
+                state = ChickenState.ReturningHome;
             }
         }
-
-        else if (!follow && !onNest)
+        else
         {
-            // reminder: direction we use to animate
-            direction = (spawnLocation - transform.position).normalized;
-
-            // MoveTowards helps us and is more adequate when we want to make an object move to given location
-            transform.position = Vector3.MoveTowards(transform.position, spawnLocation, speed * Time.deltaTime);
-
-            if (transform.position == spawnLocation)
-            {
-                state = ChickenState.Idle;
-            }
-            else
-            {
-                state = ChickenState.Walking;
-            }
+            isMoving = false;
         }
+    }
 
-        else if (!onNest)
+    private void ReturnHome() {
+        // reminder: direction we use to animate
+        direction = (spawnLocation - transform.position).normalized;
+
+        // MoveTowards helps us and is more adequate when we want to make an object move to given location
+        transform.position = Vector3.MoveTowards(transform.position, spawnLocation, speed * Time.deltaTime);
+
+        if (transform.position == spawnLocation)
         {
             state = ChickenState.Idle;
+            isMoving = false;
         }
-
-        else if (onNest)
+        else
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-            if (transform.position == targetPosition)
-            {
-                state = ChickenState.Sleeping;
-
-                if (!isLayingEgg)
-                {
-                    StartCoroutine(LayEgg());
-                }
-
-            }
+            isMoving = true;
         }
-
-        Animate();
-
     }
 
-    private void Animate()
+    private void ReturnNest()
     {
-        anim.SetBool("isMoving", state == ChickenState.Walking);
-        anim.SetBool("isSleeping", state == ChickenState.Sleeping);
+        isMoving = true;
 
-        if (direction.x != 0f)
-            anim.SetFloat("X", Mathf.Sign(direction.x));
+        direction = (targetPosition - transform.position).normalized;
+
+        transform.position = Vector3.MoveTowards(
+            transform.position, targetPosition, speed * Time.deltaTime);
+
+        if (transform.position == targetPosition)
+        {
+            isMoving = false;
+            StartCoroutine(LayEgg());
+        }
     }
-
     private static void UpdateChickenSpeeds()
     {
         chickensList.RemoveAll(chicken => chicken == null);
@@ -191,7 +217,6 @@ public class Chicken_Interactable : Interactable
         {
             nest.chicken = null;
             nest = null;
-            onNest = false;
         }
     }
 
@@ -204,8 +229,7 @@ public class Chicken_Interactable : Interactable
         {
             nest = enteredNest;
             nest.chicken = this;
-            onNest = true;
-            follow = false;
+            state = ChickenState.ReturningNest;
             targetPosition = nest.transform.position;
 
             chickensList.Remove(this);
@@ -215,25 +239,26 @@ public class Chicken_Interactable : Interactable
 
     private IEnumerator LayEgg()
     {
-        isLayingEgg = true;
+        state = ChickenState.LayingEgg;
 
-        // Remember the nest where this laying attempt started.
         Nest layingNest = nest;
 
         yield return new WaitForSeconds(layEggTimer);
 
-        if (onNest &&
+        if (state == ChickenState.LayingEgg &&
             layingNest != null &&
             nest == layingNest &&
-            layingNest.chicken == this &&
-            layingNest.Item == null &&
-            appearance != null &&
-            appearance.Egg != null)
+            layingNest.chicken == this)
         {
-            layingNest.Item = appearance.Egg;
-        }
+            if (layingNest.Item == null &&
+                appearance != null &&
+                appearance.Egg != null)
+            {
+                layingNest.Item = appearance.Egg;
+            }
 
-        isLayingEgg = false;
+            state = ChickenState.Sleeping;
+        }
     }
 
 
