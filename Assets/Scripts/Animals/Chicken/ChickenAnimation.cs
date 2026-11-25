@@ -17,7 +17,8 @@ public class ChickenAnimation : MonoBehaviour
                                  chicken.State == Chicken_Interactable.ChickenState.ReturningHome ||
                                  chicken.IsMoving);
         anim.SetBool("isSleeping", chicken.State == Chicken_Interactable.ChickenState.Sleeping ||
-                                   chicken.State == Chicken_Interactable.ChickenState.LayingEgg);
+                                   chicken.State == Chicken_Interactable.ChickenState.LayingEgg ||
+                                   chicken.State == Chicken_Interactable.ChickenState.OnNest);
 
         if (chicken.Direction.x != 0f)
             anim.SetFloat("X", Mathf.Sign(chicken.Direction.x));

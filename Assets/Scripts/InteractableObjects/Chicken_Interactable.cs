@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -45,7 +44,7 @@ public class Chicken_Interactable : Interactable
         ReturningHome
     }
 
-    private ChickenState state;
+    public ChickenState state;
     public bool isHatched = false;
 
     // Shared data
@@ -104,7 +103,6 @@ public class Chicken_Interactable : Interactable
         {
             case ChickenState.Idle:
                 break;
-
             case ChickenState.Following:
                 Follow();
                 break;
@@ -116,12 +114,26 @@ public class Chicken_Interactable : Interactable
                 break;
             case ChickenState.OnNest:
                 isMoving = false;
-                break;
 
+                if (nest != null && nest.chicken == this && nest.Item == null)
+                {
+                    StartCoroutine(LayEgg());
+                }
+                else
+                {
+                    state = ChickenState.Sleeping;
+                }
+
+                break;
             case ChickenState.Sleeping:
                 isMoving = false;
-                break;
 
+                if (nest != null && nest.chicken == this && nest.Item == null)
+                {
+                    state = ChickenState.OnNest;
+                }
+
+                break;
             case ChickenState.LayingEgg:
                 isMoving = false;
                 break;
@@ -195,7 +207,7 @@ public class Chicken_Interactable : Interactable
         if (transform.position == targetPosition)
         {
             isMoving = false;
-            StartCoroutine(LayEgg());
+            state = ChickenState.OnNest;
         }
     }
     private static void UpdateChickenSpeeds()
@@ -205,18 +217,6 @@ public class Chicken_Interactable : Interactable
         {
             Chicken_Interactable chicken = chickensList[i];
             chicken.speed = chicken.defaultSpeed * Mathf.Pow(0.9f, i);
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (!collision.TryGetComponent<Nest>(out Nest exitingNest))
-            return;
-
-        if (exitingNest == nest && nest.chicken == this)
-        {
-            nest.chicken = null;
-            nest = null;
         }
     }
 
@@ -234,6 +234,18 @@ public class Chicken_Interactable : Interactable
 
             chickensList.Remove(this);
             UpdateChickenSpeeds();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (!collision.TryGetComponent<Nest>(out Nest exitingNest))
+            return;
+
+        if (exitingNest == nest && nest.chicken == this)
+        {
+            nest.chicken = null;
+            nest = null;
         }
     }
 
@@ -257,7 +269,7 @@ public class Chicken_Interactable : Interactable
                 layingNest.Item = appearance.Egg;
             }
 
-            state = ChickenState.Sleeping;
+            state = ChickenState.OnNest;
         }
     }
 
