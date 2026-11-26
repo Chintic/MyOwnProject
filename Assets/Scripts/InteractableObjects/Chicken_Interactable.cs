@@ -32,19 +32,7 @@ public class Chicken_Interactable : Interactable
 
     public bool IsMoving => isMoving;
 
-    // State
-    public enum ChickenState
-    {
-        Idle,
-        Sleeping,
-        Following,
-        LayingEgg,
-        OnNest,
-        ReturningNest,
-        ReturningHome
-    }
-
-    public ChickenState state;
+    private ChickenState state;
     public bool isHatched = false;
 
     // Shared data
@@ -220,32 +208,37 @@ public class Chicken_Interactable : Interactable
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public bool TryAssignNest(Nest newNest)
     {
-        if (!collision.TryGetComponent<Nest>(out Nest enteredNest))
-            return;
+        if (nest != null)
+            return false;
 
-        if (enteredNest.chicken == null)
-        {
-            nest = enteredNest;
-            nest.chicken = this;
-            state = ChickenState.ReturningNest;
-            targetPosition = nest.transform.position;
+        nest = newNest;
 
-            chickensList.Remove(this);
-            UpdateChickenSpeeds();
-        }
+        targetPosition = nest.transform.position;
+        state = ChickenState.ReturningNest;
+
+        chickensList.Remove(this);
+        UpdateChickenSpeeds();
+
+        speed = defaultSpeed;
+
+        return true;
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    public void LeaveNest(Nest oldNest)
     {
-        if (!collision.TryGetComponent<Nest>(out Nest exitingNest))
+        if (nest != oldNest)
             return;
 
-        if (exitingNest == nest && nest.chicken == this)
+        nest = null;
+
+        if (state == ChickenState.OnNest ||
+            state == ChickenState.Sleeping ||
+            state == ChickenState.LayingEgg ||
+            state == ChickenState.ReturningNest)
         {
-            nest.chicken = null;
-            nest = null;
+            state = ChickenState.ReturningHome;
         }
     }
 

@@ -31,7 +31,7 @@ public class Incubator : Interactable
             UpdateSprite();
 
         }
-        else if (interactor.Inventory.ItemNaMao.itemName == "Egg" && egg == null)
+        else if (interactor.Inventory.IsHoldingItem("Egg") && egg == null)
         {
             egg = interactor.Inventory.ItemNaMao;
             interactor.Inventory.ItemNaMao = null;

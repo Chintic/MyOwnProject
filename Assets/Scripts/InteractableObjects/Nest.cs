@@ -31,4 +31,30 @@ public class Nest : Interactable
 
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!collision.TryGetComponent<Chicken_Interactable>(out var enteredChicken))
+            return;
+
+        if (chicken != null)
+            return;
+
+        if (enteredChicken.TryAssignNest(this))
+        {
+            chicken = enteredChicken;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (!collision.TryGetComponent<Chicken_Interactable>(out var exitingChicken))
+            return;
+
+        if (chicken == exitingChicken)
+        {
+            chicken = null;
+            exitingChicken.LeaveNest(this);
+        }
+    }
 }

@@ -13,12 +13,12 @@ public class ChickenAnimation : MonoBehaviour
     {
 
         // I will refactor states before proceeding
-        anim.SetBool("isMoving", chicken.State == Chicken_Interactable.ChickenState.ReturningNest ||
-                                 chicken.State == Chicken_Interactable.ChickenState.ReturningHome ||
+        anim.SetBool("isMoving", chicken.State == ChickenState.ReturningNest ||
+                                 chicken.State == ChickenState.ReturningHome ||
                                  chicken.IsMoving);
-        anim.SetBool("isSleeping", chicken.State == Chicken_Interactable.ChickenState.Sleeping ||
-                                   chicken.State == Chicken_Interactable.ChickenState.LayingEgg ||
-                                   chicken.State == Chicken_Interactable.ChickenState.OnNest);
+        anim.SetBool("isSleeping", chicken.State == ChickenState.Sleeping ||
+                                   chicken.State == ChickenState.LayingEgg ||
+                                   chicken.State == ChickenState.OnNest);
 
         if (chicken.Direction.x != 0f)
             anim.SetFloat("X", Mathf.Sign(chicken.Direction.x));

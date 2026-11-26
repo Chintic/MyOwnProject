@@ -7,6 +7,12 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private SpriteRenderer itemNaMaoSpriteRenderer;
 
     public event Action<ItemsScriptableObject> OnHeldItemChange;
+
+    public bool IsHoldingItem(string itemName)
+    {
+        return itemNaMao != null && itemNaMao.itemName == itemName;
+    }
+
     public ItemsScriptableObject ItemNaMao
     {
         get { return itemNaMao; }
